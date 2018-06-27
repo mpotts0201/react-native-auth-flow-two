@@ -32,7 +32,7 @@ class Login extends Component {
 
             console.log("From AsyncStorage: " + token)
  
-
+            this.props.navigation.navigate('AppStack')
         } catch (error) {
             console.log(error)
         }

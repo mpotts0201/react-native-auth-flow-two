@@ -14,6 +14,8 @@ import {
 } from 'react-native';
 import { createSwitchNavigator, createStackNavigator } from 'react-navigation'
 import Login from './Login'
+import SignUpLogin from './SignUpLogin'
+import Home from './Home'
 import { YellowBox } from 'react-native';
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 
@@ -70,20 +72,25 @@ const styles = StyleSheet.create({
 });
 
 export const AuthStack = createStackNavigator({ 
-  Login: Login, 
-  // Register: Register
-})
+  SignUpLogin: SignUpLogin, 
+  // Register: Register,
+  Login: Login,
+},
+{
+  initialRouteName: 'SignUpLogin'
+}
+)
 
-// export const AppStack = createStackNavigator({
-//   Home: Home
-// })
+export const AppStack = createStackNavigator({
+  Home: Home
+})
 
 
 
 export default createSwitchNavigator({
   AuthLoading: AuthLoadingScreen,
   AuthStack: AuthStack,
-  // AppStack: AppStack,
+  AppStack: AppStack,
 },
 {
   initialRouteName: 'AuthLoading'
